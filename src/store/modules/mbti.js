@@ -128,6 +128,52 @@ const initState = {
   },
 };
 
-export default function mbti() {
-  return 0;
+// Action Type 설정
+const CHECK = 'mbti/CHECK';
+const NEXT = 'mbti/NEXT';
+const RESET = 'mbti/RESET';
+
+// Action 생성 함수 설정
+export function check(result) {
+  return {
+    type: CHECK,
+    payload: { result },
+  };
+}
+
+export function next() {
+  return {
+    type: NEXT,
+  };
+}
+
+export function reset() {
+  return {
+    type: RESET,
+  };
+}
+
+// reducer
+export default function mbti(state = initState, action) {
+  switch (action.type) {
+    case CHECK:
+      return {
+        ...state,
+        mbtiResult: state.mbtiResult + action.payload.result,
+      };
+    case NEXT:
+      return {
+        ...state,
+        page: state.page + 1,
+      };
+    case RESET: {
+      return {
+        ...state,
+        page: 0,
+        mbtiResult: '',
+      };
+    }
+    default:
+      return state;
+  }
 }
