@@ -1,7 +1,7 @@
-let weight = 100;
+let weightState = 100;
 const today = new Date();
 
-export default function weightReducer(state = weight, action) {
+export default function weight(state = weightState, action) {
   if (action.type === '증가') {
     state += today.getMonth() + 1;
     return state;

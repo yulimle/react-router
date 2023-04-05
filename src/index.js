@@ -5,19 +5,21 @@ import './index.css';
 import App from './App';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 import { act } from 'react-dom/test-utils';
-import combineReducers from './store';
+import rootReducer from './store';
+import { configureStore } from '@reduxjs/toolkit';
 
 // let store = createStore(reducer);
 const reduxDevTool =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const rootReducer = createStore(combineReducers, reduxDevTool);
+// const rootReducer = createStore(combineReducers, reduxDevTool);
+const store = configureStore({ reducer: rootReducer }, reduxDevTool);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Provider store={rootReducer}>
+    <Provider store={store}>
       <App />
     </Provider>
   </BrowserRouter>
