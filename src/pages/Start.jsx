@@ -22,7 +22,7 @@ export default function Start() {
   const dispatch = useDispatch();
   //mbti 데이터 받아오는 코드
   async function fetchData() {
-    const resMbtiData = await fetch('http://localhost:4000/data/getdata');
+    const resMbtiData = await fetch('http://localhost:4001/data/getdata');
     if (resMbtiData.status === 200) {
       const mbtiData = await resMbtiData.json();
       if (mbtiData[0]) dispatch(init(mbtiData[0]));
@@ -30,7 +30,7 @@ export default function Start() {
       console.log(await resMbtiData.json());
     }
     // 방문자수 받아오는 코드
-    const resGetCounts = await fetch('http://localhost:4000/data/getcount');
+    const resGetCounts = await fetch('http://localhost:4001/data/getcount');
     if (resGetCounts.status === 200) {
       const countData = await resGetCounts.json();
       setCounts((cur) => countData.counts);
