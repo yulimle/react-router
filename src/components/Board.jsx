@@ -6,7 +6,7 @@ export default function Board() {
   return (
     <>
       <Header />
-      <h1>게시판 페이지 입니다</h1>
+      <h1>게시판 페이지 입니다 여기는</h1>
       <Link to="1">
         <h2>게시글 1번 보여주기</h2>
       </Link>
