@@ -13,7 +13,7 @@ export default function Login() {
     if (!registerIdInput.current.value || !registerPwInput.current.value)
       return alert('필수 값을 입력해주세요!');
     const resRegister = await axios.post(
-      'http://localhost:4001/user/register',
+      'http://localhost:4000/user/register',
       {
         id: registerIdInput.current.value,
         password: registerPwInput.current.value,
